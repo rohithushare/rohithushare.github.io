@@ -134,6 +134,12 @@
             }
         }
     </style>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("user_RnLHd8BmxpHmoucE2T5aa");
+        })();
+    </script>
 </head>
 
 <body>
@@ -508,6 +514,22 @@
                 </div>
             </div>
         </div>
+
+
+        <!-- Email response Modal -->
+        <div class="modal fade" id="emailResponse" tabindex="-1" role="dialog" aria-labelledby="emailResponse"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="emailResponseMessage"></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 
@@ -557,6 +579,40 @@
             var scrolled = (winScroll / height) * 100;
             document.getElementById("progress_bar").style.width = scrolled + "%";
         }
+
+
+        $("#contact-form").submit(function (e) {
+            e.preventDefault();
+
+            fd = new FormData(document.getElementById('contact-form'))
+
+            console.log(fd);
+
+            userName = fd.get('name');
+            userEmail = fd.get('email');
+            message = fd.get('message');
+
+            var templateParams = {
+                from_name: userName,
+                from_email: userEmail,
+                message: message
+            };
+
+            console.log("templateParams", templateParams);
+
+
+            emailjs.send('gmail', 'template_LaYFBNT9', templateParams)
+                .then(function (response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    $('#emailResponse').modal('show');
+                    document.getElementById('emailResponseMessage').innerHTML = "Message Sent Successfully, Thank-You.. Will Revert Back To You Soon..!!"
+                }, function (error) {
+                    console.log('FAILED...', error);
+                    $('#emailResponse').modal('show');
+                    document.getElementById('emailResponseMessage').innerHTML = "Message Couldn't Send, Sorry.. Please Try Again Later..!!"
+                });
+
+        });
 
     </script>
 </body>
