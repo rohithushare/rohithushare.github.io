@@ -476,7 +476,7 @@
                                 </div>
                             </div>
                             <div class="col-md-12">
-                                <button type="submit" class="btn btn-light">Send
+                                <button id="sendMessage" type="submit" class="btn btn-light">Send
                                     Message</button>
                             </div>
                         </div>
@@ -584,6 +584,8 @@
         $("#contact-form").submit(function (e) {
             e.preventDefault();
 
+            document.getElementById('sendMessage').innerText = "Processing"
+
             fd = new FormData(document.getElementById('contact-form'))
 
             console.log(fd);
@@ -605,11 +607,15 @@
                 .then(function (response) {
                     console.log('SUCCESS!', response.status, response.text);
                     $('#emailResponse').modal('show');
+                    document.getElementById('sendMessage').innerText = 'Send Message';
                     document.getElementById('emailResponseMessage').innerHTML = "Message Sent Successfully, Thank-You.. Will Revert Back To You Soon..!!"
+                    document.getElementById("contact-form").reset();
                 }, function (error) {
                     console.log('FAILED...', error);
                     $('#emailResponse').modal('show');
+                    document.getElementById('sendMessage').innerText = 'Send Message'
                     document.getElementById('emailResponseMessage').innerHTML = "Message Couldn't Send, Sorry.. Please Try Again Later..!!"
+                    document.getElementById("contact-form").reset();
                 });
 
         });
