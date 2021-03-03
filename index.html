@@ -423,7 +423,8 @@
                                                 <li class="list-group-item">Organisation : <span
                                                         class="text-muted">Angular Minds Pvt Ltd, Baner</span>
                                                 </li>
-                                                <li class="list-group-item">Duration : <span class="text-muted">2 Years</span>
+                                                <li class="list-group-item">Duration : <span id="expDuration"
+                                                        class="text-muted"></span>
                                                 </li>
                                             </ul>
                                         </div>
@@ -552,6 +553,33 @@
         crossorigin="anonymous"></script>
     <script>
 
+        function calculateExp() {
+            var days = Math.ceil((new Date().getTime() - new Date('03/13/2019').getTime()) / (1000 * 60 * 60 * 24))
+            var exp = function calculateTiming(d) {
+                let months = 0, years = 0, days = 0, weeks = 0;
+                while (d) {
+                    if (d >= 365) {
+                        years++;
+                        d -= 365;
+                    } else if (d >= 30) {
+                        months++;
+                        d -= 30;
+                    } else if (d >= 7) {
+                        weeks++;
+                        d -= 7;
+                    } else {
+                        days++;
+                        d--;
+                    }
+                };
+                return {
+                    years, months, weeks, days
+                };
+            };
+            console.log(exp(days));
+            document.getElementById('expDuration').innerText = exp(days).years + " Years, " + exp(days).months + " Months, " + + exp(days).weeks + " Weeks, " + exp(days).days + " Days";
+        }
+
         function fadeout() {
             setTimeout(function () {
                 document.getElementById('body').style.display = "block";
@@ -565,6 +593,7 @@
                     element.classList.add('animate__slower');
                 }, 1200)
             }, 1000)
+            calculateExp();
         }
 
         window.onload = function () {
