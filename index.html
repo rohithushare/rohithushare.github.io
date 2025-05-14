@@ -8,7 +8,7 @@
     <meta name="keywords" content="Rohit, Rohit Hushare, RH11">
     <meta name="author" content="Rohit Hushare">
     <meta name="google-site-verification" content="AUkNqtUIrnxcUmRsF1bdeCarm4w4pozYhGX8PSC_a54" />
-    <meta property='og:image' content='./image/header3.jpg'/>
+    <meta property='og:image' content='./image/header3.jpg' />
     <title>Rohit Hushare | Personal Website</title>
     <link rel="shortcut icon" href="./image/favicon.ico" type="image/x-icon" sizes="96*96">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -216,9 +216,8 @@
                                     <a class="btn m-l-5 social-networking" title="linkedin" target="_blank"
                                         href="https://in.linkedin.com/in/rohit-hushare"><i
                                             class="fa fa-linkedin"></i></a>
-                                    <a class="btn m-l-5 social-networking" title="instagram" target="_blank"
-                                        href="https://www.instagram.com/rohit_hushare/"><i
-                                            class="fa fa-instagram"></i></a>
+                                    <a class="btn m-l-5 social-networking" title="instagram" data-toggle="modal"
+                                        data-target="#instagram"><i class="fa fa-instagram"></i></a>
                                     <a class="btn m-l-5 social-networking" title="facebook" href="#"><i
                                             class="fa fa-facebook-square"></i></a>
                                 </div>
@@ -255,8 +254,8 @@
                                                 </li>
                                                 <li class="list-group-item">Phone: <span
                                                         class="text-muted">8805022022</span></li>
-                                                <li class="list-group-item">Designation: <span
-                                                        class="text-muted">Senior Software
+                                                <li class="list-group-item">Designation: <span class="text-muted">Senior
+                                                        Software
                                                         Engineer </span></li>
                                             </ul>
                                         </div>
@@ -424,7 +423,7 @@
                                                 <li class="list-group-item">Organisation : <span
                                                         class="text-muted">Angular Minds Pvt Ltd, Baner</span>
                                                 </li>
-                                                <li class="list-group-item">Duration : <span id="expDuration"
+                                                <li class="list-group-item">Duration : <span id="firstExpDuration"
                                                         class="text-muted"></span>
                                                 </li>
                                             </ul>
@@ -432,9 +431,20 @@
                                         <div class="card-body">
                                             <ul class="list-group">
                                                 <li class="list-group-item">Organisation : <span
-                                                        class="text-muted">Angular Minds Pvt Ltd, Baner</span>
+                                                        class="text-muted">Accenture Solutions Pvt Ltd,
+                                                        Magarpatta</span>
                                                 </li>
-                                                <li class="list-group-item">Duration : <span id="expDuration"
+                                                <li class="list-group-item">Duration : <span id="secondExpDuration"
+                                                        class="text-muted"></span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="card-body">
+                                            <ul class="list-group">
+                                                <li class="list-group-item">Organisation : <span
+                                                        class="text-muted">Cybage Software Pvt Ltd, Kalyaninagar</span>
+                                                </li>
+                                                <li class="list-group-item">Duration : <span id="thirdExpDuration"
                                                         class="text-muted"></span>
                                                 </li>
                                             </ul>
@@ -530,6 +540,32 @@
             </div>
         </div>
 
+        <div class="modal fade" id="instagram" tabindex="-1" role="dialog" aria-labelledby="instagram"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="blogs">Instagram</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <span class="text-muted">
+                            Oh wow, you're actually interested in my personal life? 😱 <br>
+                            What an honor. <br>
+                            just search <strong>@rohit hushare</strong> on Instagram. <br>
+                            It's public-because why keep all this quality content to myself? 📸✨ <br>
+                            Go ahead, become the fan you were always meant to be. 😎"
+                        </span>
+                    </div>
+                    <div class="modal-footer">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
         <!-- Email response Modal -->
         <div class="modal fade" id="emailResponse" tabindex="-1" role="dialog" aria-labelledby="emailResponse"
@@ -564,8 +600,8 @@
         crossorigin="anonymous"></script>
     <script>
 
-        function calculateExp() {
-            var days = Math.ceil((new Date().getTime() - new Date('03/13/2019').getTime()) / (1000 * 60 * 60 * 24))
+        function calculateFirstExp() {
+            var days = Math.ceil((new Date('09/31/2021').getTime() - new Date('03/13/2019').getTime()) / (1000 * 60 * 60 * 24))
             var exp = function calculateTiming(d) {
                 let months = 0, years = 0, days = 0, weeks = 0;
                 while (d) {
@@ -588,7 +624,61 @@
                 };
             };
             console.log(exp(days));
-            document.getElementById('expDuration').innerText = exp(days).years + " Years, " + exp(days).months + " Months, " + + exp(days).weeks + " Weeks, " + exp(days).days + " Days";
+            document.getElementById('firstExpDuration').innerText = exp(days).years + " Years, " + exp(days).months + " Months, " + + exp(days).weeks + " Weeks, " + exp(days).days + " Days";
+        }
+
+        function calculateSecondExp() {
+            var days = Math.ceil((new Date('04/29/2024').getTime() - new Date('10/19/2021').getTime()) / (1000 * 60 * 60 * 24))
+            var exp = function calculateTiming(d) {
+                let months = 0, years = 0, days = 0, weeks = 0;
+                while (d) {
+                    if (d >= 365) {
+                        years++;
+                        d -= 365;
+                    } else if (d >= 30) {
+                        months++;
+                        d -= 30;
+                    } else if (d >= 7) {
+                        weeks++;
+                        d -= 7;
+                    } else {
+                        days++;
+                        d--;
+                    }
+                };
+                return {
+                    years, months, weeks, days
+                };
+            };
+            console.log(exp(days));
+            document.getElementById('secondExpDuration').innerText = exp(days).years + " Years, " + exp(days).months + " Months, " + + exp(days).weeks + " Weeks, " + exp(days).days + " Days";
+        }
+
+        function calculateThirdExp() {
+            var days = Math.ceil((new Date().getTime() - new Date('05/23/2024').getTime()) / (1000 * 60 * 60 * 24))
+            var exp = function calculateTiming(d) {
+                let months = 0, years = 0, days = 0, weeks = 0;
+                while (d) {
+                    if (d >= 365) {
+                        years++;
+                        d -= 365;
+                    } else if (d >= 30) {
+                        months++;
+                        d -= 30;
+                    } else if (d >= 7) {
+                        weeks++;
+                        d -= 7;
+                    } else {
+                        days++;
+                        d--;
+                    }
+                };
+                return {
+                    years, months, weeks, days
+                };
+            };
+            console.log(exp(days));
+            document.getElementById('thirdExpDuration').innerText = exp(days).years + " Years, " + exp(days).months + " Months, " + + exp(days).weeks + " Weeks, " + exp(days).days + " Days";
         }
 
         function fadeout() {
@@ -604,7 +694,9 @@
                     element.classList.add('animate__slower');
                 }, 1200)
             }, 1000)
-            calculateExp();
+            calculateFirstExp();
+            calculateSecondExp();
+            calculateThirdExp();
         }
 
         window.onload = function () {
